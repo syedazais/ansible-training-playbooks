@@ -15,7 +15,7 @@
     when: ansible_os_family == "RedHat"
   
   - name: Ensure that Apache is installed
-    yum: name=apache2 state=present
+    apt: name=apache2 state=present
     when: ansible_os_family == "Debian"
 
   - name: Start Apache Services
