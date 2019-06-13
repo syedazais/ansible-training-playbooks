@@ -1,7 +1,7 @@
 ---
 - hosts: webservers
   become: yes
-  become_user: ansible
+  become_user: root
   become_method: sudo
   vars:
     http_port: 80
@@ -35,7 +35,7 @@
 
 - hosts: dbservers
   become: yes
-  become_user: ansible
+  become_user: root
   become_method: sudo
   
   tasks:
