@@ -18,7 +18,7 @@
     apt: name=apache2 state=absent
     when: ansible_os_family == "Debian"
 
-  - name: Start Apache Services
+  - name: Stop Apache Services
     service: name=apache2 enabled=no state=stopped
 
 - hosts: dbservers
@@ -31,5 +31,5 @@
     apt: name=mysql-server state=absent
     when: ansible_os_family == "RedHat" or ansible_os_family == "Debian"
 
-  - name: Start MySQL
+  - name: Stop MySQL
     service: name=mysql state=stopped
