@@ -1,35 +1,13 @@
 ---
-- hosts: webservers
+- name: Hello World Sample
+- hosts: all
   become: yes
   become_user: root
   become_method: sudo
-  vars:
-    http_port: 80
-    doc_dir: /ansible/
-    doc_root: /var/www/html/
-    max_clients: 5
-
   tasks:
-  - name: Stop Apache Services
-    service: name=apache2 enabled=no state=stopped
-
-  - name: Ensure that Apache is un-installed
-    yum: name=httpd state=absent
-    when: ansible_os_family == "RedHat"
-  
-  - name: Ensure that Apache is un-installed
-    apt: name=apache2 state=absent
-    when: ansible_os_family == "Debian"
-
-- hosts: dbservers
-  become: yes
-  become_user: root
-  become_method: sudo
-  
-  tasks:
-  - name: Stop MySQL
-    service: name=mysql state=stopped
-
-  - name: Ensure MySQL is installed
-    apt: name=mysql-server state=absent
-    when: ansible_os_family == "RedHat" or ansible_os_family == "Debian"
+    - name: Ping status
+      ping: 
+       status: 200
+    - name: Hello Message
+      debug:
+        msg: "Hello Azais!"  
