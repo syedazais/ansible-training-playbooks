@@ -1,0 +1,13 @@
+---
+- name: Hello World Sample
+- hosts: all
+  become: yes
+  become_user: root
+  become_method: sudo
+  tasks:
+    - name: Ping status
+      ping: 
+       status: 200
+    - name: Hello Message
+      debug:
+        msg: "Hello Azais!"
