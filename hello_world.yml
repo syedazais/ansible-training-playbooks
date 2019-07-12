@@ -5,8 +5,8 @@
   become_method: sudo
   tasks:
     - name: Ping status
-      ping: 
-       status: 200
+      ping: successping
+       
     - name: Hello Message
       debug:
         msg: "Hello Azais!"
