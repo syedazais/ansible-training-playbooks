@@ -1,6 +1,6 @@
 ---
 - name: Hello World Sample
-- hosts: all
+- hosts: dbservers
   become: yes
   become_user: root
   become_method: sudo
