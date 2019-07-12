@@ -4,9 +4,5 @@
   become_user: root
   become_method: sudo
   tasks:
-    - name: Ping status
-      ping: successping
-       
-    - name: Hello Message
-      debug:
-        msg: "Hello Azais!"
+      ping: successping 
+  
