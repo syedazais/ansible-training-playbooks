@@ -39,13 +39,13 @@
   become_method: sudo
   
   tasks:
-  - name: Save the result of 'whoami' in 'whoami_out'
-    win_command: whoami
-    register: whoami_out
-
   - name: Ensure MySQL is installed
     apt: name=mysql-server state=present
     when: ansible_os_family == "RedHat" or ansible_os_family == "Debian"
 
   - name: Start MySQL
     service: name=mysql state=started
+    
+  - name: Save the result of 'whoami' in 'whoami_out'
+    win_command: whoami
+    register: whoami_out
